@@ -18,4 +18,4 @@ def index(request):
         books = Book.objects.filter(title__icontains=query)  # Search by title
     else:
         books = Book.objects.all()
-    return render(request, 'library\inde.html', {'books': books, 'query': query})
+    return render(request, 'library\index.html', {'books': books, 'query': query})

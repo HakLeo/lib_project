@@ -13,18 +13,9 @@ books = [
 
 
 def index(request):
-    # query = request.GET.get('q')  # Get the search term from the query string
-    # if query:
-    #     books = Book.objects.filter(title__icontains=query)  # Search by title
-    # else:
-    #     books = Book.objects.all()
-    return render(request, 'library\index.html', {'books': books})
-
-
-# def index(request):
-#     query = request.GET.get('q')  # Get the search term from the query string
-#     if query:
-#         books = Book.objects.filter(title__icontains=query)  # Search by title
-#     else:
-#         books = Book.objects.all()
-#     return render(request, 'library\index.html', {'books': books, 'query': query})
+    query = request.GET.get('q')  # Get the search term from the query string
+    if query:
+        books = Book.objects.filter(title__icontains=query)  # Search by title
+    else:
+        books = Book.objects.all()
+    return render(request, 'library\index.html', {'books': books, 'query': query})
